@@ -152,4 +152,4 @@ Not to be confused with Unity prefabs. This is where the engine truly shines:
 Here are some of the samples distributed with the engine:
 
 ####Bloom####
-[](img/bloom.png)
+![bloom.png](https://bitbucket.org/repo/ypgzaj/images/3561976502-bloom.png)
