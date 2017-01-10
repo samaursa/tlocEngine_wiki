@@ -8,7 +8,7 @@ We tried to use best C++ practices (although looking back, the code can be impro
 
 ## Build ##
 
-The engine depends on [tlocDep](https://bitbucket.org/samaursa/tlocdep) which must be compiled first. Optionally, you can also `clone` [tlocSamples](https://bitbucket.org/samaursa/tlocsamples).
+The [2LoC engine](https://bitbucket.org/samaursa/tlocengine) depends on [tlocDep](https://bitbucket.org/samaursa/tlocdep) which must be compiled first. Optionally, you can also `clone` [tlocSamples](https://bitbucket.org/samaursa/tlocsamples).
 
 Although the build process is quite flexible on where you put your files, for now we'll assume you have the following folder structure when you clone all 3 repositories:
 
