@@ -1,12 +1,14 @@
+![](../imgs/bloom.png)
+
 # 2LoC Engine #
 
-## Overview ##
+## **Overview** ##
 
 The 2LoC engine is a production ready engine with an emphasis on tight error checking with an **emphasis on compile time checks** whenever possible. A major portion of the design time went into making the engine programmer friendly. We avoided vague construction of objects by creating explicit types, ensured that your types are compatible (at compile time) and emphasis on being able to figure out the code (quickly) _without_ a tutorial or documentation.
 
 We tried to use best C++ practices (although looking back, the code can be improved a _lot_ especially with C++11 and 14 features which the engine could not use at the time).
 
-## Build ##
+## **Build** ##
 
 The [2LoC engine](https://bitbucket.org/samaursa/tlocengine) depends on [tlocDep](https://bitbucket.org/samaursa/tlocdep) which must be compiled first. Optionally, you can also `clone` [tlocSamples](https://bitbucket.org/samaursa/tlocsamples).
 
@@ -21,6 +23,14 @@ tlocSamples
 ```
 
 The build process might seem complex at first. However, our configuration allows the greatest flexibility when working with different builds.
+
+###Repository Links###
+
+[https://bitbucket.org/samaursa/tlocdep](https://bitbucket.org/samaursa/tlocdep)
+
+[https://bitbucket.org/samaursa/tlocengine](https://bitbucket.org/samaursa/tlocengine)
+
+[https://bitbucket.org/samaursa/tlocsamples](https://bitbucket.org/samaursa/tlocsamples)
 
 ###tlocDep###
 
@@ -61,7 +71,7 @@ cmake ../ -DDISTRIBUTION_BUILD=ON -DTLOC_DEP_INSTALL_PATH=../../tlocDep/INSTALL/
 cmake --build . --config "Debug"
 ```
 
-## Features ##
+## **Features** ##
 
 ###Programmer Friendly###
 
