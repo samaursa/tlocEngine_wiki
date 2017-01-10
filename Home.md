@@ -1,22 +1,81 @@
 # 2LoC Engine #
 
+## Overview ##
+
 The 2LoC engine is a production ready engine with an emphasis on tight error checking with an **emphasis on compile time checks** whenever possible. A major portion of the design time went into making the engine programmer friendly. We avoided vague construction of objects by creating explicit types, ensured that your types are compatible (at compile time) and emphasis on being able to figure out the code (quickly) _without_ a tutorial or documentation.
 
 We tried to use best C++ practices (although looking back, the code can be improved a _lot_ especially with C++11 and 14 features which the engine could not use at the time).
 
-### Features ###
+## Build ##
 
-**Programmer Friendly**
+The engine depends on [tlocDep](https://bitbucket.org/samaursa/tlocdep) which must be compiled first. Optionally, you can also `clone` [tlocSamples](https://bitbucket.org/samaursa/tlocsamples).
+
+Although the build process is quite flexible on where you put your files, for now we'll assume you have the following folder structure when you clone all 3 repositories:
+
+```
+.
+..
+tlocDep
+tlocEngine
+tlocSamples
+```
+
+The build process might seem complex at first. However, our configuration allows the greatest flexibility when working with different builds.
+
+###tlocDep###
+
+Assuming you are in the `root` of the repository:
+
+```
+mkdir build
+cd build
+cmake ../ -DDISTRIBUTION_BUILD=ON
+cmake --build . --config "Debug"
+```
+
+This will create an `INSTALL` folder in the `root` of the repository which has a `build` folder. If you had made a directory called `build_2015` then you will find a `build_2015` folder in there.
+
+The reason we went this route is to allow different build configurations to work simultaneously. For example, we can have `VS2012, VS2013` and `VS2015` builds running simultaneously making it easier to test different builds before distributing the engine.
+
+###tlocEngine###
+
+The engine needs to know which `tlocDep` distribution you are using and thus it needs its `INSTALL` path.
+
+```
+mkdir build
+cd build
+cmake ../ -DDISTRIBUTION_BUILD=ON -DTLOC_DEP_INSTALL_PATH=../../tlocDep/INSTALL/build
+cmake --build . --config "Debug"
+```
+
+**NOTE:** As pointed out before, the path `../../tlocDep/INSTALL/build` assumes the folder hierarchy shown above _and_ that you named your build folder `build`.
+
+###tlocSamples###
+
+The samples need both the engine's and the dependency `INSTALL` paths.
+
+```
+mkdir build
+cd build
+cmake ../ -DDISTRIBUTION_BUILD=ON -DTLOC_DEP_INSTALL_PATH=../../tlocDep/INSTALL/build -DTLOC_ENGINE_INSTALL_PATH=../../tlocEngine/INSTALL/build
+cmake --build . --config "Debug"
+```
+
+## Features ##
+
+###Programmer Friendly###
 
 Most other engines are editor driven. That's their main goal, the engine is designed around the editor. 2LoC foregoes that approach and puts a heavier emphasis on making the engine friendlier for programmers.
 
 The engine makes no attempt to compete with other engines. If you are a programmer and would like to _program_ games so that you can learn more and keep your skills sharp, then this engine may be for you.
 
-**CI Features**
+Our smart pointer implementations (and extensions) allow easier checking for memory leaks and segfaults. If you replace your raw pointers with `VirtualPtr` (which are optimized in `release` builds to be as fast as raw pointers) you will be able to get all the benefits albeit with some cost in runtime speed.
+
+###CI Features###
 
 The engine uses CMake and is thus CI ready. Our build machine went offline in late 2015 in favor of another, more modern, engine that is in the works (where once again, the editor will _not_ be the main focus).
 
-**Core Features**
+###Core Features###
 
 The engine was built when C++11 was not widely supported. Thus, all features in the engine before ver0.2 are implemented in C++03.
 
@@ -35,7 +94,7 @@ The engine was built when C++11 was not widely supported. Thus, all features in 
 * **Data driven** with a robust and easy to extend **ECS** implementation
 * Built-in logger
 
-**Rendering**
+###Rendering###
 
 * Custom window and input implementation (to avoid SFML, SDL dependency)
 * Type-safe, RAII wrappers for OpenGL
@@ -59,14 +118,14 @@ The engine was built when C++11 was not widely supported. Thus, all features in 
 * Built-in sprite support
 * Rendering pipeline with command buffer
 
-**Input, Math and Phyiscs**
+###Input, Math and Phyiscs###
 
 * Keyboard, mouse, joystick and touch support **without external dependencies**
 * Fast vector, matrix, projection types
 * Utility classes including pythagoras, angle, range and scale types
 * Box2D driven physics engine with rigid body dynamics and events
 
-**Prefabs**
+###Prefabs###
 
 Not to be confused with Unity prefabs. This is where the engine truly shines:
 
@@ -83,7 +142,14 @@ Not to be confused with Unity prefabs. This is where the engine truly shines:
     * Math
     * Physics
 
-**Limitations**
+###Limitations###
 
 * Animated rigs not supported
 * Underlying data structures are not thread-safe
+
+###Samples###
+
+Here are some of the samples distributed with the engine:
+
+####Bloom####
+[](img/bloom.png)
