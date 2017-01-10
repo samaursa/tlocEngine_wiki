@@ -1,5 +1,3 @@
-![](../imgs/bloom.png)
-
 # 2LoC Engine #
 
 ## **Overview** ##
@@ -157,9 +155,93 @@ Not to be confused with Unity prefabs. This is where the engine truly shines:
 * Animated rigs not supported
 * Underlying data structures are not thread-safe
 
-###Samples###
+#Samples#
 
 Here are some of the samples distributed with the engine:
 
-####Bloom####
-![bloom.png](https://bitbucket.org/repo/ypgzaj/images/3561976502-bloom.png)
+##Input Callbacks##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/input_callbacks.png)
+
+##Joysticks##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/joysticks.gif)
+
+##Obj Loader##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/obj_loader.gif)
+
+##Skybox##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/skybox.png)
+
+##Simple Sprite##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/simple_sprite.gif)
+
+##Multiple Sprite##
+Sprite switching on the **same material**. Animation state is controlled by the same entity.
+
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/multiple_sprites_with_anim.gif)
+
+##Multiple Texture Coords##
+Animation of multiple texture coordinates (saves space on sprite sheet)
+
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/multiple_texture_coords.gif)
+
+##FPS Camera##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/fps_camera.gif)
+
+##Keyframe Animation##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/keyframe_anim.gif)
+
+##2D Raypicking##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/raypicking_2d.gif)
+
+##3D Raypicking##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/raypicking_3d.gif)
+
+##Font as Sprite Animation##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/font_sprite.png)
+
+##Font as SpriteSheet##
+Efficient storage of font sprites using the [Guillotine Bin Packing](https://github.com/juj/RectangleBinPack) algorithm.
+
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/font_sprite_sheet.png)
+
+##Static Text##
+Faster than dynamic text.
+
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/static_text.png)
+
+##Dynamic Text##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/dynamic_text.png)
+
+##Mesh Sorting##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/mesh_sorting.gif)
+
+##Bloom##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/bloom.png)
+
+##Shadow Maps##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/shadow_map.gif)
+
+##Godrays##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/godrays.png)
+
+##Normal Mapping##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/normal_mapping.gif)
+
+##Parallax Mapping##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/parallax_mapping.gif)
+
+##Physics Test##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/physics_test.png)
+
+##Stereoscopic Rendering##
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/stereoscopic_rendering.png)
+
+##Texture Stream##
+Blitting to a texture.
+
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/texture_stream.png)
+
+##Texture Stream##
+Each texture uses a different storage format. The image types are set at compile time (using templates). The shader operator mechanism selects the correct internal format for OpenGL simply by passing the image type - again, at compile time.
+
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/texture_types.png)
