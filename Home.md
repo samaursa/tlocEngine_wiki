@@ -65,9 +65,13 @@ The samples need both the engine's and the dependency `INSTALL` paths.
 ```
 mkdir build
 cd build
-cmake ../ -DDISTRIBUTION_BUILD=ON -DTLOC_DEP_INSTALL_PATH=../../tlocDep/INSTALL/build -DTLOC_ENGINE_INSTALL_PATH=../../tlocEngine/INSTALL/build
+cmake ../ -DTLOC_DEP_INSTALL_PATH=../../tlocDep/INSTALL/build -DTLOC_ENGINE_INSTALL_PATH=../../tlocEngine/INSTALL/build
 cmake --build . --config "Debug"
 ```
+
+If you want to distribute your samples, then you should enable the option `-DDISTRIBUTION_BUILD=ON` when generating the project. However, this project may have issues when debugging in Visual Studio.
+
+Instead of overriding your current project's settings (under the `build` folder), you can start a new CMake project under a different folder e.g. `build_distr`. This setting _must_ be used if using a continuous integration server such as Jenkins.
 
 ## **Features** ##
 
