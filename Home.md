@@ -87,6 +87,10 @@ Our smart pointer implementations (and extensions) allow easier checking for mem
 
 The engine uses CMake and is thus CI ready. Our build machine went offline in late 2015 in favor of another, more modern, engine that is in the works (where once again, the editor will _not_ be the main focus).
 
+###Tests###
+
+Each engine library is complemented with a test project. Although the coverage is not 100%, all the major components are tested regularly. Moreover, the tests can help identify issues on machines where any or all samples do not run properly.
+
 ###Core Features###
 
 The engine was built when C++11 was not widely supported. Thus, all features in the engine before ver0.2 are implemented in C++03.
