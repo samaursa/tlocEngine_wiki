@@ -218,7 +218,9 @@ Faster than dynamic text.
 ![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/static_text.png)
 
 ##Dynamic Text##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/dynamic_text.png)
+Note that the counter may seem like it is jittery - that's alignment at work (we didn't choose the best font to show off the alignment features)
+
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/dynamic_text.gif)
 
 ##Mesh Sorting##
 ![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/mesh_sorting.gif)
