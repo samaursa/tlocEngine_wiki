@@ -109,6 +109,16 @@ One of the core features of `core_err::Error` is that, unlike return values, it 
 
 The engine comes with its own logging system that is quite fast, although not as fast as spdlog or Pantheios. Unlike the other two libraries, it does not rely on the std library (which is a common theme in the engine), is quite lean and is easily extensible.
 
+###Versioning###
+
+One of the biggest hurdles while working with large libraries with dependencies (such as the engine) is making sure that we're building against the correct version. The problem becomes tedious and error prone when a bug creeps in and the developer now has to determine which changeset the bug originated from.
+
+We wanted to avoid something similar to `git submodule` for any subproject with the engine as a dependency mainly to avoid waste of disk space. Thus, the internal versioning system was born where any project dependent on the engine requires a `tlocVersionCheck.cpp` file which in turn checks the version set by the subproject against the current revision of the engine. If there is a mismatch, a compiler error is issued.
+
+One of the biggest advantages over `submodules` and similar is that the version numbers are searchable in the commit history. If subproject `B` in on commit #40 and a bug was found to originate on commit #25, the developer can immediately know which version of the engine commit #25 compiled against.
+
+The system _can_ be bypassed very easily by commenting out an `include` directive.
+
 ###Core Features###
 
 The engine was built when C++11 was not widely supported. Thus, all features in the engine before ver0.2 are implemented in C++03.
