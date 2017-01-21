@@ -1,3 +1,7 @@
+# Table of Contents #
+
+[TOC]
+
 # 2LoC Engine #
 
 ## **Overview** ##
@@ -5,6 +9,10 @@
 The 2LoC engine is a production ready engine with tight error checking and an **emphasis on compile time checks (asserts)** whenever possible. A major portion of the design time went into making the engine programmer friendly. We avoided ambiguous/vague function parameters when creating or working with different objects by creating explicit types. This ensures that your types are compatible (at compile time). The coding practices encourage documentation via code and avoid (redundant) commenting wherever possible.
 
 We tried to use best C++ practices (although looking back, the code can be improved a _lot_ especially with C++11 and 14 features which the engine could not use at the time).
+
+## Table of Contents ##
+
+* [Building the engine](Building the engine)
 
 ## **Build** ##
 
