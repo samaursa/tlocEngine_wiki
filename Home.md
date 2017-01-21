@@ -91,6 +91,16 @@ The engine uses CMake and is thus CI ready. Our build machine went offline in la
 
 Each engine library is complemented with a test project. Although the coverage is not 100%, all the major components are tested regularly. Moreover, the tests can help identify issues on machines where any or all samples do not run properly.
 
+###Error Checking###
+
+Because the engine disallows the use of C++ exceptions (although they can be turned on for individual projects), error handling was given a lot of though. The `core_err::Error` class defines the basic functionality for the error handling system. In `release` builds, the errors can optionally be compiled out to always assume `SUCCESS`. This gives a measurable boost in runtime performance.
+
+One of the core features of `core_err::Error` is that, unlike return values, it _cannot be ignored_. The `core_err:Error` records the file and line number of the error as well as the call site that caused the error. If there is an error which is not checked by the user (e.g. `GLSL uniform` name mismatch) an assertion is fired.
+
+###Logging###
+
+The engine comes with its own logging system that is quite fast, although not as fast as spdlog or Pantheios. Unlike the other two libraries, it does not rely on the std library (which is a common theme in the engine), is quite lean and is easily extensible.
+
 ###Core Features###
 
 The engine was built when C++11 was not widely supported. Thus, all features in the engine before ver0.2 are implemented in C++03.
