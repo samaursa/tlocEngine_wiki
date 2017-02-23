@@ -103,7 +103,7 @@ One of the core features of `core_err::Error` is that, unlike return values, it 
 
 ###Logging###
 
-The engine comes with its own logging system that is quite fast, although not as fast as spdlog or Pantheios. Unlike the other two libraries, it does not rely on the std library (which is a common theme in the engine), is quite lean and is easily extensible.
+The engine comes with its own logging system that is quite fast, although not as fast as [spdlog](https://github.com/gabime/spdlog) or [Pantheios](http://www.pantheios.org/). Unlike the other two libraries, it does not rely on the std library (which is a common theme in the engine), is quite lean and is easily extensible.
 
 ###Versioning###
 
