@@ -85,7 +85,7 @@ Most other engines are editor driven. That's their main goal, the engine is desi
 
 The engine makes no attempt to compete with other engines. If you are a programmer and would like to _program_ games so that you can learn more and keep your skills sharp, then this engine may be for you.
 
-Our smart pointer implementations (and extensions) allow easier checking for memory leaks and segfaults. If you replace your raw pointers with `VirtualPtr` (which are optimized in `release` builds to be as fast as raw pointers) you will be able to get all the benefits albeit with some cost in runtime speed.
+Our smart pointer implementations (and extensions) allow easier checking for memory leaks and segfaults. If you replace your raw pointers with `VirtualPtr` you will be able to get all the benefits albeit with some cost in runtime speed (debug builds only). In `release` builds, `VirtualPtrs` are as fast as raw pointers and there is no performance penalty.
 
 ###CI Features###
 
@@ -97,7 +97,7 @@ Each engine library is complemented with a test project. Although the coverage i
 
 ###Error Checking###
 
-Because the engine disallows the use of C++ exceptions (although they can be turned on for individual projects), error handling was given a lot of though. The `core_err::Error` class defines the basic functionality for the error handling system. In `release` builds, the errors can optionally be compiled out to always assume `SUCCESS`. This gives a measurable boost in runtime performance.
+Because the engine disallows the use of C++ exceptions (although they can be turned on for individual projects), error handling was given a lot of thought. The `core_err::Error` class defines the basic functionality for the error handling system. In `release` builds, the errors can optionally be compiled out to always assume `SUCCESS`. This gives a measurable boost in runtime performance.
 
 One of the core features of `core_err::Error` is that, unlike return values, it _cannot be ignored_. The `core_err:Error` records the file and line number of the error as well as the call site that caused the error. If there is an error which is not checked by the user (e.g. `GLSL uniform` name mismatch) an assertion is fired.
 
