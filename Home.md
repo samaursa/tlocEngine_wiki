@@ -10,10 +10,6 @@ The 2LoC engine is a production ready engine with tight error checking and an **
 
 We tried to use best C++ practices (although looking back, the code can be improved a _lot_ especially with C++11 and 14 features which the engine could not use at the time).
 
-## Table of Contents ##
-
-* [Building the engine](Building the engine)
-
 ## **Build** ##
 
 The [2LoC engine](https://bitbucket.org/samaursa/tlocengine) depends on [tlocDep](https://bitbucket.org/samaursa/tlocdep) which must be compiled first. Optionally, you can also `clone` [tlocSamples](https://bitbucket.org/samaursa/tlocsamples).
