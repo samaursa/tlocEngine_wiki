@@ -253,7 +253,7 @@ Note that the counter may seem like it is jittery - that's alignment at work (we
 ![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/bloom.png)
 
 ##Shadow Maps##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/shadow_map.gif)
+![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/shadow_map.png)
 
 ##Godrays##
 ![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/godrays.png)
