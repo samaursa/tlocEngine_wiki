@@ -24,7 +24,7 @@ tlocEngine
 tlocSamples
 ```
 
-The build process might seem complex at first. However, our configuration allows the greatest flexibility when working with different builds.
+The build process might seem complex at first. However, this configuration allows the greatest flexibility when working with different builds.
 
 ###Repository Links###
 
@@ -89,7 +89,7 @@ Our smart pointer implementations (and extensions) allow easier checking for mem
 
 ###CI Features###
 
-The engine uses CMake and is thus CI ready. Our build machine went offline in late 2015 in favor of another, more modern, engine that is in the works (where once again, the editor will _not_ be the main focus).
+The engine uses CMake and is thus CI ready. The build machines went offline in late 2015 in favor of another, more modern, engine that is in the works (where once again, the editor will _not_ be the main focus).
 
 ###Tests###
 
