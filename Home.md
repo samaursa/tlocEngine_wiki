@@ -6,7 +6,7 @@
 
 ## **Overview** ##
 
-The 2LoC engine is a production ready engine with tight error checking and an **emphasis on compile time checks (asserts)** whenever possible. A major portion of the design time went into making the engine programmer friendly. We avoided ambiguous/vague function parameters when creating or working with different objects by creating explicit types. This ensures that your types are compatible (at compile time). The coding practices encourage documentation via code and avoid (redundant) commenting wherever possible.
+The 2LoC engine is a production ready engine with tight error checking and an **emphasis on compile time checks (asserts)** whenever possible. A major portion of the design time went into making the engine programmer friendly. Ambiguous/vague function parameters when creating or working with different objects by creating explicit types were avoided. This ensures that your types are compatible (at compile time). The coding practices encourage documentation via code and avoid (redundant) commenting wherever possible.
 
 We tried to use best C++ practices (although looking back, the code can be improved a _lot_ especially with C++11 and 14 features which the engine could not use at the time).
 
@@ -47,7 +47,7 @@ cmake --build . --config "Debug"
 
 This will create an `INSTALL` folder in the `root` of the repository which has a `build` folder. If you had made a directory called `build_2015` then you will find a `build_2015` folder in there.
 
-The reason we went this route is to allow different build configurations to work simultaneously. For example, we can have `VS2012, VS2013` and `VS2015` builds running simultaneously making it easier to test different builds before distributing the engine.
+The reason to go this route is to allow different build configurations to work simultaneously. For example, we can have `VS2012, VS2013` and `VS2015` builds running simultaneously making it easier to test different builds before distributing the engine. Moreover, we can have `Debug` and `Release` builds for all the different configurations also running simultaneously.
 
 ###tlocEngine###
 
