@@ -4,6 +4,10 @@
 
 # 2LoC Engine #
 
+## **New Version** ##
+
+A new version is being worked on that is more modular, uses modern C++, cleaner more organized build files and more. You can see the progress here: https://github.com/2LoC
+
 ## **Overview** ##
 
 The 2LoC engine is a production ready engine with tight error checking and an **emphasis on compile time checks (asserts)** whenever possible. A major portion of the design time went into making the engine programmer friendly. Ambiguous/vague function parameters when creating or working with different objects by creating explicit types were avoided. This ensures that your types are compatible (at compile time). The coding practices encourage documentation via code and avoid (redundant) commenting wherever possible.
