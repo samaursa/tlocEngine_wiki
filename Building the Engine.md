@@ -50,7 +50,7 @@ cmake --build . --config "Debug"
 
 **NOTE:** As pointed out before, the path `../../tlocDep/INSTALL/build` assumes the folder hierarchy shown above _and_ that you named your build folder `build`.
 
-##tlocSamples##
+## tlocSamples
 
 The samples need both the engine's and the dependency `INSTALL` paths.
 
