@@ -37,7 +37,7 @@ This will create an `INSTALL` folder in the `root` of the repository which has a
 
 The reason we went this route is to allow different build configurations to work simultaneously. For example, we can have `VS2012, VS2013` and `VS2015` builds running simultaneously making it easier to test different builds before distributing the engine.
 
-##tlocEngine##
+## tlocEngine
 
 The engine needs to know which `tlocDep` distribution you are using and thus it needs its `INSTALL` path.
 
