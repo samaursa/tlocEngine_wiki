@@ -1,6 +1,6 @@
 # Building the Engine #
 
-The [2LoC engine](https://bitbucket.org/samaursa/tlocengine) depends on [tlocDep](https://bitbucket.org/samaursa/tlocdep) which must be compiled first. Optionally, you can also `clone` [tlocSamples](https://bitbucket.org/samaursa/tlocsamples).
+The [2LoC engine](https://github.com/samaursa/tlocEngine) depends on [tlocDep](https://github.com/samaursa/tlocDep) which must be compiled first. Optionally, you can also `clone` [tlocSamples](https://github.com/samaursa/tlocSamples).
 
 Although the build process is quite flexible on where you put your files, for now we'll assume you have the following folder structure when you clone all 3 repositories:
 
@@ -14,15 +14,15 @@ tlocSamples
 
 The build process might seem complex at first. However, our configuration allows the greatest flexibility when working with different builds.
 
-###Repository Links###
+### Repository Links
 
-[https://bitbucket.org/samaursa/tlocdep](https://bitbucket.org/samaursa/tlocdep)
+[https://github.com/samaursa/tlocDep](https://github.com/samaursa/tlocDep)
 
-[https://bitbucket.org/samaursa/tlocengine](https://bitbucket.org/samaursa/tlocengine)
+[https://github.com/samaursa/tlocEngine](https://github.com/samaursa/tlocEngine)
 
-[https://bitbucket.org/samaursa/tlocsamples](https://bitbucket.org/samaursa/tlocsamples)
+[https://github.com/samaursa/tlocSamples](https://github.com/samaursa/tlocSamples)
 
-##tlocDep##
+## tlocDep
 
 Assuming you are in the `root` of the repository:
 
