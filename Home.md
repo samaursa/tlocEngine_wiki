@@ -1,6 +1,4 @@
-# Table of Contents #
-
-# 2LoC Engine #
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/2loc_engine.png)
 
 ## **New Version** ##
 
