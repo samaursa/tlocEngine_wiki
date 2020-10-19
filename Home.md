@@ -1,7 +1,5 @@
 # Table of Contents #
 
-[TOC]
-
 # 2LoC Engine #
 
 ## **New Version** ##
@@ -16,7 +14,7 @@ We tried to use best C++ practices (although looking back, the code can be impro
 
 ## **Build** ##
 
-The [2LoC engine](https://bitbucket.org/samaursa/tlocengine) depends on [tlocDep](https://bitbucket.org/samaursa/tlocdep) which must be compiled first. Optionally, you can also `clone` [tlocSamples](https://bitbucket.org/samaursa/tlocsamples).
+The [2LoC engine](https://github.com/samaursa/tlocEngine) depends on [tlocDep](https://github.com/samaursa/tlocDep) which must be compiled first. Optionally, you can also `clone` [tlocSamples](https://github.com/samaursa/tlocSamples).
 
 Although the build process is quite flexible on where you put your files, for now we'll assume you have the following folder structure when you clone all 3 repositories:
 
@@ -30,15 +28,15 @@ tlocSamples
 
 The build process might seem complex at first. However, this configuration allows the greatest flexibility when working with different builds.
 
-###Repository Links###
+### Repository Links
 
-[https://bitbucket.org/samaursa/tlocdep](https://bitbucket.org/samaursa/tlocdep)
+[https://github.com/samaursa/tlocDep](https://github.com/samaursa/tlocDep)
 
-[https://bitbucket.org/samaursa/tlocengine](https://bitbucket.org/samaursa/tlocengine)
+[https://github.com/samaursa/tlocEngine](https://github.com/samaursa/tlocEngine)
 
-[https://bitbucket.org/samaursa/tlocsamples](https://bitbucket.org/samaursa/tlocsamples)
+[https://github.com/samaursa/tlocSamples](https://github.com/samaursa/tlocSamples)
 
-###tlocDep###
+### tlocDep
 
 Assuming you are in the `root` of the repository:
 
@@ -53,7 +51,7 @@ This will create an `INSTALL` folder in the `root` of the repository which has a
 
 The reason to go this route is to allow different build configurations to work simultaneously. For example, we can have `VS2012, VS2013` and `VS2015` builds running simultaneously making it easier to test different builds before distributing the engine. Moreover, we can have `Debug` and `Release` builds for all the different configurations also running simultaneously.
 
-###tlocEngine###
+### tlocEngine
 
 The engine needs to know which `tlocDep` distribution you are using and thus it needs its `INSTALL` path.
 
@@ -66,7 +64,7 @@ cmake --build . --config "Debug"
 
 **NOTE:** As pointed out before, the path `../../tlocDep/INSTALL/build` assumes the folder hierarchy shown above _and_ that you named your build folder `build`.
 
-###tlocSamples###
+### tlocSamples
 
 The samples need both the engine's and the dependency `INSTALL` paths.
 
@@ -83,7 +81,7 @@ Instead of overriding your current project's settings (under the `build` folder)
 
 ## **Features** ##
 
-###Programmer Friendly###
+### Programmer Friendly
 
 Most other engines are editor driven. That's their main goal, the engine is designed around the editor. 2LoC foregoes that approach and puts a heavier emphasis on making the engine friendlier for programmers.
 
@@ -91,25 +89,25 @@ The engine makes no attempt to compete with other engines. If you are a programm
 
 Our smart pointer implementations (and extensions) allow easier checking for memory leaks and segfaults. If you replace your raw pointers with `VirtualPtr` you will be able to get all the benefits albeit with some cost in runtime speed (debug builds only). In `release` builds, `VirtualPtrs` are as fast as raw pointers and there is no performance penalty.
 
-###CI Features###
+### CI Features
 
 The engine uses CMake and is thus CI ready. The build machines went offline in late 2015 in favor of another, more modern, engine that is in the works (where once again, the editor will _not_ be the main focus).
 
-###Tests###
+### Tests
 
 Each engine library is complemented with a test project. Although the coverage is not 100%, all the major components are tested regularly. Moreover, the tests can help identify issues on machines where any or all samples do not run properly.
 
-###Error Checking###
+### Error Checking
 
 Because the engine disallows the use of C++ exceptions (although they can be turned on for individual projects), error handling was given a lot of thought. The `core_err::Error` class defines the basic functionality for the error handling system. In `release` builds, the errors can optionally be compiled out to always assume `SUCCESS`. This gives a measurable boost in runtime performance.
 
 One of the core features of `core_err::Error` is that, unlike return values, it _cannot be ignored_. The `core_err:Error` records the file and line number of the error as well as the call site that caused the error. If there is an error which is not checked by the user (e.g. `GLSL uniform` name mismatch) an assertion is fired.
 
-###Logging###
+### Logging
 
 The engine comes with its own logging system that is quite fast, although not as fast as [spdlog](https://github.com/gabime/spdlog) or [Pantheios](http://www.pantheios.org/). Unlike the other two libraries, it does not rely on the std library (which is a common theme in the engine), is quite lean and is easily extensible.
 
-###Versioning###
+### Versioning
 
 One of the biggest hurdles while working with large libraries with dependencies (such as the engine) is making sure that we're building against the correct version. The problem becomes tedious and error prone when a bug creeps in and the developer now has to determine which changeset the bug originated from.
 
@@ -119,11 +117,11 @@ One of the biggest advantages over `submodules` and similar is that the version 
 
 The system _can_ be bypassed very easily by commenting out an `include` directive.
 
-###Core Features###
+### Core Features
 
 The engine was built when C++11 was not widely supported. Thus, all features in the engine before ver0.2 are implemented in C++03.
 
-* Depends only on [tlocDep](https://bitbucket.org/samaursa/tlocdep/)
+* Depends only on [tlocDep](https://github.com/samaursa/tlocDep)
 * No C++ Exceptions
 * Mostly standard compliant STL implementation (without C++ exceptions) - with many added features and interfaces
   * Containers
@@ -138,7 +136,7 @@ The engine was built when C++11 was not widely supported. Thus, all features in 
 * **Data driven** with a robust and easy to extend **ECS** implementation
 * Built-in logger
 
-###Rendering###
+### Rendering
 
 * Custom window and input implementation (to avoid SFML, SDL dependency)
 * Type-safe, RAII wrappers for OpenGL
@@ -162,14 +160,14 @@ The engine was built when C++11 was not widely supported. Thus, all features in 
 * Built-in sprite support
 * Rendering pipeline with command buffer
 
-###Input, Math and Phyiscs###
+### Input, Math and Phyiscs
 
 * Keyboard, mouse, joystick and touch support **without external dependencies**
 * Fast vector, matrix, projection types
 * Utility classes including pythagoras, angle, range and scale types
 * Box2D driven physics engine with rigid body dynamics and events
 
-###Prefabs###
+### Prefabs
 
 Not to be confused with Unity prefabs. This is where the engine truly shines:
 
@@ -186,100 +184,100 @@ Not to be confused with Unity prefabs. This is where the engine truly shines:
     * Math
     * Physics
 
-###Limitations###
+### Limitations
 
 * Animated rigs not supported
 * Underlying data structures are not thread-safe
 
-#Samples#
+# Samples
 
 Here are some of the samples distributed with the engine:
 
-##Input Callbacks##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/input_callbacks.png)
+## Input Callbacks
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/input_callbacks.png)
 
-##Joysticks##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/joysticks.gif)
+## Joysticks
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/joysticks.gif)
 
-##Obj Loader##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/obj_loader.gif)
+## Obj Loader
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/obj_loader.gif)
 
-##Skybox##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/skybox.png)
+## Skybox
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/skybox.png)
 
-##Simple Sprite##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/simple_sprite.gif)
+## Simple Sprite
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/simple_sprite.gif)
 
-##Multiple Sprite##
+## Multiple Sprite
 Sprite switching on the **same material**. Animation state is controlled by the same entity.
 
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/multiple_sprites_with_anim.gif)
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/multiple_sprites_with_anim.gif)
 
-##Multiple Texture Coords##
+## Multiple Texture Coords
 Animation of multiple texture coordinates (saves space on sprite sheet)
 
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/multiple_texture_coords.gif)
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/multiple_texture_coords.gif)
 
-##FPS Camera##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/fps_camera.gif)
+## FPS Camera
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/fps_camera.gif)
 
-##Keyframe Animation##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/keyframe_anim.gif)
+## Keyframe Animation
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/keyframe_anim.gif)
 
-##2D Raypicking##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/raypicking_2d.gif)
+## 2D Raypicking
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/raypicking_2d.gif)
 
-##3D Raypicking##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/raypicking_3d.gif)
+## 3D Raypicking
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/raypicking_3d.gif)
 
-##Font as Sprite Animation##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/font_sprite.png)
+## Font as Sprite Animation
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/font_sprite.png)
 
-##Font as SpriteSheet##
+## Font as SpriteSheet
 Efficient storage of font sprites using the [Guillotine Bin Packing](https://github.com/juj/RectangleBinPack) algorithm.
 
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/font_sprite_sheet.png)
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/font_sprite_sheet.png)
 
-##Static Text##
+## Static Text
 Faster than dynamic text.
 
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/static_text.png)
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/static_text.png)
 
-##Dynamic Text##
+## Dynamic Text
 Note that the counter may seem like it is jittery - that's alignment at work (we didn't choose the best font to show off the alignment features)
 
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/dynamic_text.gif)
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/dynamic_text.gif)
 
-##Mesh Sorting##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/mesh_sorting.gif)
+## Mesh Sorting
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/mesh_sorting.gif)
 
-##Bloom##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/bloom.png)
+## Bloom
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/bloom.png)
 
-##Shadow Maps##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/shadow_map.png)
+## Shadow Maps
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/shadow_map.png)
 
-##Godrays##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/godrays.png)
+## Godrays
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/godrays.png)
 
-##Normal Mapping##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/normal_mapping.gif)
+## Normal Mapping
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/normal_mapping.gif)
 
-##Parallax Mapping##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/parallax_mapping.gif)
+## Parallax Mapping
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/parallax_mapping.gif)
 
-##Physics Test##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/physics_test.png)
+## Physics Test
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/physics_test.png)
 
-##Stereoscopic Rendering##
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/stereoscopic_rendering.png)
+## Stereoscopic Rendering
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/stereoscopic_rendering.png)
 
-##Texture Stream##
+## Texture Stream
 Blitting to a texture.
 
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/texture_stream.png)
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/texture_stream.png)
 
-##Texture Stream##
+## Texture Stream
 Each texture uses a different storage format. The image types are set at compile time (using templates). The shader operator mechanism selects the correct internal format for OpenGL simply by passing the image type - again, at compile time.
 
-![](http://bitbucket.org/samaursa/tlocengine/wiki/imgs/texture_types.png)
+![](https://raw.githubusercontent.com/samaursa/tlocEngine_wiki/master/imgs/texture_types.png)
